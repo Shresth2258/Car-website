@@ -1,0 +1,15 @@
+(()=>{const q=s=>document.querySelector(s),T=(a,f)=>a.map(f).join('');
+const v=q('.hero>video'),L=['video/hero.mp4','video/rr_hero.mp4'];let k=0;v.loop=false;v.onended=()=>{k^=1;v.src=L[k];v.play()};
+const S=(c,t,p,b)=>`<div class="${c}"><div class="wrap"><div class="head rv"><h2>${t}</h2><p>${p}</p></div>${b}</div></div>`;
+const VF=s=>`<div class="vf"><video src="video/${s}.mp4" autoplay muted loop playsinline></video></div>`;
+const html=
+`<div class="nt"><video src="video/rr_hero.mp4" autoplay muted loop playsinline poster="images/rr1.jpg"></video><div class="rv"><h2>Dusk belongs to the Wraith.</h2><p>Headlights on, coast road empty, 6.6-litre twin-turbo V12 at a whisper.</p><div class="st"><div><b data-n="624">0</b>hp</div><div><b data-n="870">0</b>Nm</div><div><b data-n="4">0</b>s to 100</div></div></div></div>`+
+S('','Behind the wheel','A cabin made for the person who drives, and the people behind them.',`<div class="split"><div class="rv">${VF('rr_interior')}</div><div class="rv"><p>Hand-stitched leather, real wood and analogue clocks. Everything you touch is meant to feel the same in ten years as it does today.</p><br><div class="bars"><div><span>Leather quality<b>99</b></span><i style="--v:99%"></i></div><div><span>Ride comfort<b>98</b></span><i style="--v:98%"></i></div></div></div></div>`)+
+S('alt','Step into the showroom','Every car is presented under studio light, engine warm and cabin ready.',`<div class="split"><div class="rv"><p>Walk in, and your chosen car is already waiting at the door with its lights on. Espresso, quiet and no sales pressure.</p><br><a class="btn" href="#contact">Book a private visit</a></div><div class="rv">${VF('rr_showroom')}</div></div>`)+
+S('','Rolls-Royce photo strip','Swipe through the marque, from Beverly Hills to Dubai.',`<div class="sn rv">${T(['c7','c10','rr1','rr2','rr3','rr4','rr5','rr6'],i=>`<img src="images/${i}.jpg" alt="Rolls-Royce" loading="lazy">`)}</div>`)+
+S('alt','The sound of silence','Approximate cabin noise at 100 km/h. Lower is quieter.',`<div class="db rv"><div><span>Rolls-Royce Ghost<b>~ 55 dB</b></span><i style="--v:55%"></i></div><div><span>Bentley Continental GT<b>~ 63 dB</b></span><i style="--v:63%"></i></div><div><span>Mercedes-AMG E63<b>~ 68 dB</b></span><i style="--v:68%"></i></div><div><span>Ford Mustang GT<b>~ 74 dB</b></span><i style="--v:74%"></i></div></div>`)+
+S('','The handover ritual','The day your car becomes yours.',`<div class="hv rv"><div><h3>Unveil</h3><p>Your car is revealed under a cover, detailed and charged.</p></div><div><h3>Walk-through</h3><p>A technician shows every control and setting.</p></div><div><h3>First drive</h3><p>We ride along for the first few kilometres.</p></div><div><h3>Keys</h3><p>The keys, records and a personal note are handed over.</p></div></div>`);
+q('#home .cta').insertAdjacentHTML('beforebegin',html);
+document.querySelectorAll('.nt [data-n]').forEach(e=>{e.dataset.n=e.dataset.n});
+const pe=document.querySelector('[data-img="phantom"]');if(pe)pe.alt='Rolls-Royce Ghost';
+watch()})();

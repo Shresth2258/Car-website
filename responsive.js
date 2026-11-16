@@ -1,0 +1,10 @@
+(()=>{const b=document.getElementById('burger'),n=document.getElementById('nav'),h=document.querySelector('header');
+if(!b||!n)return;
+const set=o=>{n.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o));h.style.setProperty('--hh',h.offsetHeight+'px');document.body.style.overflow=o?'hidden':''};
+b.onclick=()=>set(!n.classList.contains('open'));
+n.addEventListener('click',e=>{if(e.target.closest('a'))set(false)});
+addEventListener('hashchange',()=>set(false));
+addEventListener('resize',()=>{if(innerWidth>760)set(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){set(false);b.focus()}});
+document.addEventListener('click',e=>{if(n.classList.contains('open')&&!e.target.closest('header'))set(false)});
+})();
